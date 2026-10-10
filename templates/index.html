@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lampa — Specialty Coffee & Desserts | Новополоцк</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #120c0a;
+            color: #f3ece7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Навигация */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(18, 12, 10, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #d4a373;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c2b4a8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4a373;
+        }
+
+        /* Hero Секция */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 60px 5%;
+            background: linear-gradient(180deg, rgba(18,12,10,0.5) 0%, rgba(18,12,10,1) 100%),
+                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d4a373;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .hero-desc {
+            color: #a89a8e;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #a66a38;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #8c5427;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(212, 163, 115, 0.4);
+            color: #f3ece7;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d4a373;
+            color: #d4a373;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #c2b4a8;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(212, 163, 115, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4a373;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        /* Секция О нас */
+        .about-section {
+            padding: 70px 5%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            background-color: #18110e;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 163, 115, 0.15);
+        }
+
+        .about-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d4a373;
+            font-size: 16px;
+        }
+
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 8px 0 15px 0;
+            color: #fff;
+        }
+
+        .about-text {
+            color: #a89a8e;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #d3c7bc;
+        }
+
+        /* Секция Меню */
+        .menu-section {
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d4a373;
+            font-size: 18px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 8px 0 30px 0;
+            color: #fff;
+        }
+
+        /* Табы управления */
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            background: #18110e;
+            padding: 6px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 35px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: #a89a8e;
+            padding: 10px 16px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .tab-btn.active {
+            background: #a66a38;
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+            text-align: left;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Сетка карточек меню */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .menu-card {
+            background: #19120e;
+            border: 1px solid rgba(212, 163, 115, 0.12);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f3ece7;
+        }
+
+        .card-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #d4a373;
+            white-space: nowrap;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: #998a7d;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .card-tag {
+            font-size: 11px;
+            color: #a66a38;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #0b0706;
+            padding: 40px 5% 25px 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #d4a373;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            color: #8c7d71;
+            font-size: 13px;
+        }
+
+        .footer-col h4 {
+            color: #f3ece7;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #8c7d71;
+            font-size: 13px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #5c5046;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Медиа-запросы для планшетов и ПК (от 768px и выше) */
+        @media (min-width: 768px) {
+            nav { padding: 25px 8%; }
+            .hero { padding: 140px 8% 60px 8%; }
+            .hero-title { font-size: 50px; }
+            .about-section { padding: 100px 8%; grid-template-columns: 1fr 1fr; gap: 60px; }
+            .about-img { height: 450px; }
+            .about-highlights { grid-template-columns: 1fr 1fr; }
+            .menu-section { padding: 100px 8%; }
+            .section-title { font-size: 40px; }
+            .menu-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+            .tab-btn { flex: unset; padding: 10px 24px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav>
+        <a href="#" class="logo">LAMPA</a>
+        <ul class="nav-links">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#menu">Меню</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Rich. Smooth. Perfect.</div>
+            <h1 class="hero-title">Попробуйте кофе, каким он должен быть</h1>
+            <p class="hero-desc">Пространство для созидания в Новополоцке. Спешелти кофе, свежие завтраки и авторские десерты каждый день.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn-primary">Смотреть меню →</a>
+                <a href="#about" class="btn-secondary">О кофейне</a>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <span>Specialty Beans</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <span>Fresh Bakery</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <span>Pet-friendly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция О нас -->
+    <section class="about-section" id="about">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800" alt="Кофейня Lampa" class="about-img">
+        <div>
+            <div class="about-subtitle">About Us</div>
+            <h2 class="about-title">Больше, чем просто кофе</h2>
+            <p class="about-text">Lampa — это уютное место для работы, встреч и вдохновения. Мы готовим кофе из зерна высочайшего качества, подаем питательные завтраки и радуем гостей свежими десертами.</p>
+            <div class="about-highlights">
+                <div class="highlight-item">☕ Эспрессо и Фильтр</div>
+                <div class="highlight-item">🥐 Свежие круассаны</div>
+                <div class="highlight-item">🐾 Pet-friendly атмосфера</div>
+                <div class="highlight-item">🍵 Авторские чаи</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Меню -->
+    <section class="menu-section" id="menu">
+        <div class="section-subtitle">Our Menu</div>
+        <h2 class="section-title">Карта напитков и десертов</h2>
+
+        <!-- Табы переключения -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('coffee')">Кофе</button>
+            <button class="tab-btn" onclick="switchTab('food')">Завтраки</button>
+            <button class="tab-btn" onclick="switchTab('desserts')">Десерты</button>
+        </div>
+
+        <!-- Вкладка 1: Кофе и Напитки -->
+        <div id="coffee" class="tab-content active">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Эспрессо</span>
+                            <span class="card-price">4.5 р</span>
+                        </div>
+                        <p class="card-desc">Классический насыщенный эспрессо двойной экстракции.</p>
+                    </div>
+                    <span class="card-tag">Классика</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Американо</span>
+                            <span class="card-price">4.5 р</span>
+                        </div>
+                        <p class="card-desc">Мягкий кофе на основе эспрессо и горячей воды.</p>
+                    </div>
+                    <span class="card-tag">Классика</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Фильтр-кофе</span>
+                            <span class="card-price">4.5 / 6.0 р</span>
+                        </div>
+                        <p class="card-desc">Яркий, чистый вкус зерна альтернативной заварки.</p>
+                    </div>
+                    <span class="card-tag">Specialty</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Капучино</span>
+                            <span class="card-price">6.0 р</span>
+                        </div>
+                        <p class="card-desc">Идеальный баланс эспрессо и взбитой молочной пены.</p>
+                    </div>
+                    <span class="card-tag">С молоком</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Латте</span>
+                            <span class="card-price">6.5 р</span>
+                        </div>
+                        <p class="card-desc">Нежный молочный напиток с легким кофейным акцентом.</p>
+                    </div>
+                    <span class="card-tag">С молоком</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Сырный раф</span>
+                            <span class="card-price">9.0 р</span>
+                        </div>
+                        <p class="card-desc">Фирменный густой раф с кремово-сырными нотками.</p>
+                    </div>
+                    <span class="card-tag">Авторский</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка 2: Завтраки и Еда -->
+        <div id="food" class="tab-content">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Круассан с ветчиной</span>
+                            <span class="card-price">10 р</span>
+                        </div>
+                        <p class="card-desc">Кремчиз, соус песто, ветчина, соленый огурец.</p>
+                    </div>
+                    <span class="card-tag">Круассаны</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Круассан с лососем</span>
+                            <span class="card-price">12 р</span>
+                        </div>
+                        <p class="card-desc">Кремчиз, слабосоленый лосось, свежий огурец, руккола.</p>
+                    </div>
+                    <span class="card-tag">Круассаны</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Сырники</span>
+                            <span class="card-price">10 р</span>
+                        </div>
+                        <p class="card-desc">Нежные творожные сырники с бананом, сметаной и джемом.</p>
+                    </div>
+                    <span class="card-tag">Завтраки</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка 3: Десерты -->
+        <div id="desserts" class="tab-content">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Медовик</span>
+                        </div>
+                        <p class="card-desc">Медовые коржи, крем из сметаны и сливок.</p>
+                    </div>
+                    <span class="card-tag">Торты</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Смородина</span>
+                        </div>
+                        <p class="card-desc">Шоколадный бисквит, крем на основе кремчиза, начинка смородиновый джем.</p>
+                    </div>
+                    <span class="card-tag">Торты</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Сникерс</span>
+                        </div>
+                        <p class="card-desc">Шоколадный бисквит, крем на основе кремчиза, жареный арахис и солёная карамель.</p>
+                    </div>
+                    <span class="card-tag">Торты</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Баноффи</span>
+                        </div>
+                        <p class="card-desc">Песочная основа, свежий банан, солёная карамель и крем на основе кремчиза.</p>
+                    </div>
+                    <span class="card-tag">Десерты</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Орео</span>
+                        </div>
+                        <p class="card-desc">Шоколадный бисквит, крем-чиз на сливках с крошкой «Орео», глазурь.</p>
+                    </div>
+                    <span class="card-tag">Торты</span>
+                </div>
+
+                <div class="menu-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="card-title">Павлова</span>
+                        </div>
+                        <p class="card-desc">Безе с крем-чизом на сливках (вишневый конфитюр / лимонный курд).</p>
+                    </div>
+                    <span class="card-tag">Десерты</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer id="contacts">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>LAMPA COFFEE</h3>
+                <p>Пространство для созидания в Новополоцке. Ждём вас в гости каждый день за отличным кофе и атмосферой.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты & Адрес</h4>
+                <p>📍 ул. Молодёжная, 166, Новополоцк</p>
+                <p>🕒 Пн-Пт: 08:00 – 22:00</p>
+                <p>🕒 Сб-Вс: 09:00 – 23:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Соцсети</h4>
+                <a href="https://www.instagram.com/lampa.novopolotsk/" target="_blank">Instagram: @lampa.novopolotsk</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Lampa Coffee Novopolotsk. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            contents.forEach(content => content.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
